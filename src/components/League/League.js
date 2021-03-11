@@ -1,8 +1,9 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
 import {Card, Button} from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 import {FaArrowRight} from 'react-icons/fa';
-
+import './League.css';
 
 const League = (props) => {
     const {idLeague, strLeague, strSport} = props.leagues;
@@ -21,10 +22,24 @@ const League = (props) => {
         history.push(url);
     }
 
+    const [league, setLeague] = useState({});
+
+    useEffect(() => {
+        const url = `https://www.thesportsdb.com/api/v1/json/1/lookupleague.php?id=${idLeague}`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setLeague(data.leagues));
+    }, [idLeague]);
+
     return (
-        <div style={{margin: '50px 100px 50px 220px', justifyContent: 'center', alignItems: 'center'}}>
+        <div className="body">
             <Card style={cardStyle}>
-                <Card.Img variant="top" src="holder.js/100px180" />
+            {
+                league.length > 0 && (
+                    <Card.Img variant="top" style={{marginLeft: '20%'}} src={league[0].strLogo} height="100px" />
+                )
+            }
+
                 <Card.Body>
                     <Card.Title><h2>{strLeague}</h2></Card.Title>
                     <Card.Text>
