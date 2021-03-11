@@ -36,7 +36,7 @@ const League = (props) => {
             <Card style={cardStyle}>
             {
                 league.length > 0 && (
-                    <Card.Img variant="top" style={{marginLeft: '20%'}} src={league[0].strLogo} height="100px" />
+                    <Card.Img variant="top" style={{marginLeft: '20%'}} src={league[0].strLogo} height="100px" width="200px"/>
                 )
             }
 
