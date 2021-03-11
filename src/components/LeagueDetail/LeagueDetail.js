@@ -20,7 +20,7 @@ const LeagueDetail = () => {
     let gender;
     let imageURL = '';
 
-    const gender2 = (gender=== "Male")? imageURL = "https://img.olympicchannel.com/images/image/private/t_social_share_thumb/primary/djnacbhtd6zvpkdiixah" :
+    gender = (gender=== "Male")? imageURL = "https://img.olympicchannel.com/images/image/private/t_social_share_thumb/primary/djnacbhtd6zvpkdiixah" :
     imageURL = "https://media.npr.org/assets/img/2019/01/02/gettyimages-1058306908-0b38ff8a90d7bf88fea3133d8b72498665f63e12.jpg";
 
 
